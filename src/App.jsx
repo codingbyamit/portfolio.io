@@ -68,6 +68,22 @@ const data = {
     ],
     projects: [
         {
+            name: "Machine Breakdown Management System",
+            tech: [
+                "Node.js",
+                "Express",
+                "React",
+                "SQL",
+                "MS Access",
+                "Tailwind CSS",
+                "Google API",
+                "NodeMailer",
+            ],
+            summary:
+                "Centralized system to log, track, and analyze machine breakdowns across the factory. Allows operators to raise breakdown tickets with machine details, issue type, and timestamps, while supervisors monitor resolution status in real time.",
+            impact: "Reduced machine downtime by ~35%; improved maintenance response time and provided clear historical breakdown analytics for preventive maintenance.",
+        },
+        {
             name: "Carbide Management System",
             tech: [
                 "Node.js",
@@ -108,6 +124,21 @@ const data = {
             summary:
                 "Real-time tracking system for job start/end times, with instant status updates and offline alerts.",
             impact: "Reduced idle time by ~40% and improved monitoring accuracy.",
+        },
+        {
+            name: "Indent & Purchase Order Automation System",
+            tech: [
+                "Node.js",
+                "Express",
+                "React",
+                "SQL",
+                "Google APIs",
+                "PDF Generation",
+                "Tailwind CSS",
+            ],
+            summary:
+                "Automates material indent creation and purchase order generation. Includes approval workflow, supplier selection, automatic PO number generation, PDF creation, and email dispatch to vendors.",
+            impact: "Cut manual indent & PO processing time by ~60%; minimized human errors and standardized procurement workflows across departments.",
         },
         {
             name: "Pending Orders Dashboard",
