@@ -22,7 +22,7 @@ export default function ProjectCard({ project, onOpen }) {
                         <FiLock className="text-red-500" /> Proprietary Tool
                     </div>
                     {project.name.includes("Indent") ? (
-                        <a href="http://139.5.196.37:5022">
+                        <a href="http://139.5.196.37:5022" target="_blank">
                             <FaExternalLinkAlt
                                 className="text-blue-600 group-hover:text-blue-900 transition-colors"
                                 size={24}
