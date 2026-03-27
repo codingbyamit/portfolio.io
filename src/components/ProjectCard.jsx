@@ -22,7 +22,7 @@ export default function ProjectCard({ project, onOpen }) {
                     </div>
                     {project.name.includes("Indent") ? (
                         <a href="http://139.5.196.37:5022">
-                            <FiArrowRight
+                            <FiBarChart2
                                 className="text-gray-600 group-hover:text-red-400 transition-colors"
                                 size={24}
                             />
