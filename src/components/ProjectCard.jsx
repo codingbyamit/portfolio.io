@@ -1,4 +1,5 @@
 import { FiLock, FiBarChart2, FiArrowRight, FiLayers } from "react-icons/fi";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 export default function ProjectCard({ project, onOpen }) {
     return (
@@ -22,8 +23,8 @@ export default function ProjectCard({ project, onOpen }) {
                     </div>
                     {project.name.includes("Indent") ? (
                         <a href="http://139.5.196.37:5022">
-                            <FiBarChart2
-                                className="text-gray-600 group-hover:text-red-400 transition-colors"
+                            <FaExternalLinkAlt
+                                className="text-blue-600 group-hover:text-blue-900 transition-colors"
                                 size={24}
                             />
                         </a>
