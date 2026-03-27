@@ -1,4 +1,5 @@
 import { FiLock, FiBarChart2, FiArrowRight, FiLayers } from "react-icons/fi";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 export default function ProjectCard({ project, onOpen }) {
     return (
@@ -39,7 +40,26 @@ export default function ProjectCard({ project, onOpen }) {
                 {/* RECRUITER SPECIAL: IMPACT SECTION */}
                 <div className="relative p-4 rounded-xl bg-gradient-to-r from-red-500/10 to-transparent border-l-2 border-red-500 mb-6">
                     <div className="flex items-center gap-2 mb-1">
-                        <FiBarChart2 className="text-red-500" size={14} />
+                        {/* <FiBarChart2 className="text-red-500" size={14} /> */}
+                        <a
+                            href={
+                                project?.name?.includes(
+                                    "Indent & Purchase Order",
+                                ) ? (
+                                    `http://139.5.196.37:5022/`
+                                ) : (
+                                    <FiBarChart2
+                                        className="text-red-500"
+                                        size={14}
+                                    />
+                                )
+                            }
+                        >
+                            <FaExternalLinkAlt
+                                className="text-blue-500"
+                                size={14}
+                            />
+                        </a>
                         <span className="text-[10px] uppercase tracking-widest font-black text-red-500">
                             Measurable Impact
                         </span>
