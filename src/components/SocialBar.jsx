@@ -5,23 +5,14 @@ import {
     FaLinkedinIn,
     FaGithub,
 } from "react-icons/fa";
-import { useEffect, useState } from "react";
-import axiosClient from "../utils/axiosClient";
+import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-export default function SocialBar() {
-    const [links, setLinks] = useState(null);
-
+export default function SocialBar({ links = {} }) {
     useEffect(() => {
-        axiosClient.get("/resume").then(({ data }) => {
-            setLinks(data.links || {});
-        });
-
         AOS.init({ duration: 900, once: true });
     }, []);
-
-    if (!links) return null;
 
     return (
         <div
@@ -37,6 +28,7 @@ export default function SocialBar() {
                     className="hover:text-red-600 hover:scale-125"
                     href={links.facebook}
                     target="_blank"
+                    rel="noreferrer"
                 >
                     <FaFacebookF />
                 </a>
@@ -48,6 +40,7 @@ export default function SocialBar() {
                     className="hover:text-red-600 hover:scale-125"
                     href={links.twitter}
                     target="_blank"
+                    rel="noreferrer"
                 >
                     <FaTwitter />
                 </a>
@@ -59,6 +52,7 @@ export default function SocialBar() {
                     className="hover:text-red-600 hover:scale-125"
                     href={links.instagram}
                     target="_blank"
+                    rel="noreferrer"
                 >
                     <FaInstagram />
                 </a>
@@ -70,6 +64,7 @@ export default function SocialBar() {
                     className="hover:text-red-600 hover:scale-125"
                     href={links.linkedin}
                     target="_blank"
+                    rel="noreferrer"
                 >
                     <FaLinkedinIn />
                 </a>
@@ -81,6 +76,7 @@ export default function SocialBar() {
                     className="hover:text-red-600 hover:scale-125"
                     href={links.github}
                     target="_blank"
+                    rel="noreferrer"
                 >
                     <FaGithub />
                 </a>

@@ -57,13 +57,10 @@ export default function Experience({ experience }) {
                                 ))}
                             </ul>
 
-                            {/* Quick Stats Badge (Based on your data) */}
+                            {/* Quick Stats Badge */}
                             <div className="mt-8 pt-6 border-t border-white/5 flex flex-wrap gap-4">
-                                <div className="px-3 py-1 bg-green-500/10 border border-green-500/20 rounded-lg text-green-400 text-xs font-bold uppercase tracking-wider">
-                                    40% Efficiency Boost
-                                </div>
                                 <div className="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-lg text-blue-400 text-xs font-bold uppercase tracking-wider">
-                                    8+ Production Apps
+                                    8+ Production Apps Shipped
                                 </div>
                             </div>
                         </div>

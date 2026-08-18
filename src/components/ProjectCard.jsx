@@ -1,5 +1,4 @@
 import { FiLock, FiBarChart2, FiArrowRight, FiLayers } from "react-icons/fi";
-import { FaExternalLinkAlt } from "react-icons/fa";
 
 export default function ProjectCard({ project, onOpen }) {
     return (
@@ -21,19 +20,10 @@ export default function ProjectCard({ project, onOpen }) {
                     <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold uppercase tracking-widest text-gray-400">
                         <FiLock className="text-red-500" /> Proprietary Tool
                     </div>
-                    {project.name.includes("Indent") ? (
-                        <a href="http://139.5.196.37:5022" target="_blank">
-                            <FaExternalLinkAlt
-                                className="text-blue-600 group-hover:text-blue-900 transition-colors"
-                                size={24}
-                            />
-                        </a>
-                    ) : (
-                        <FiLayers
-                            className="text-gray-600 group-hover:text-red-400 transition-colors"
-                            size={24}
-                        />
-                    )}
+                    <FiLayers
+                        className="text-gray-600 group-hover:text-red-400 transition-colors"
+                        size={24}
+                    />
                 </div>
 
                 {/* Project Title */}
@@ -46,12 +36,12 @@ export default function ProjectCard({ project, onOpen }) {
                     {project.summary}
                 </p>
 
-                {/* RECRUITER SPECIAL: IMPACT SECTION */}
+                {/* IMPACT SECTION */}
                 <div className="relative p-4 rounded-xl bg-gradient-to-r from-red-500/10 to-transparent border-l-2 border-red-500 mb-6">
                     <div className="flex items-center gap-2 mb-1">
                         <FiBarChart2 className="text-red-500" size={14} />
                         <span className="text-[10px] uppercase tracking-widest font-black text-red-500">
-                            Measurable Impact
+                            What It Replaced
                         </span>
                     </div>
                     <p className="text-red-50 text-[13px] font-medium italic">

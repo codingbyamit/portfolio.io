@@ -1,26 +1,17 @@
-import { useEffect, useState } from "react";
-import axiosClient from "../utils/axiosClient";
+import { Link } from "react-router-dom";
 import Typewriter from "typewriter-effect";
 import SocialBar from "../components/SocialBar";
-import AOS from "aos";
-import profile from "../assets/profile.png";
 import profile_new from "../assets/profile_new.png";
 import "aos/dist/aos.css";
-// import Loader from "../components/Loader";
-import Skills from "./Skills";
-import About from "./About";
-import Projects from "./Projects";
-// import Contact from "./Contact";
-// import Experience from "./Experience";
 
 export default function Home({ resume }) {
     return (
         <div className="bg-[#05080f] text-white overflow-hidden">
             {/* HERO SECTION */}
-            <section className="relative min-h-screen flex items-evenly pt-20 md:pt-28 sm:pt-32 lg:pt-16">
+            <section className="relative min-h-screen flex items-center pt-20 md:pt-28 sm:pt-32 lg:pt-16">
                 {/* Social Bar only visible in hero */}
                 <div className="absolute left-8 top-1/3 z-40 hidden md:block">
-                    <SocialBar />
+                    <SocialBar links={resume.links} />
                 </div>
 
                 {/* Content */}
@@ -90,42 +81,41 @@ export default function Home({ resume }) {
                 </div>
             </section>
 
-            {/* {ABOUT SECTION } */}
-            {/* <About /> */}
-
-            {/* SKILLS SECTION */}
-            <Skills skills={resume.skills} />
-
-            {/* PROJECTS SECTION */}
-            <Projects projects={resume.projects} />
-
-            <About resume={resume} />
-
-            {/* EXPERIENCE SECTION */}
-            {/* <section className="pt-10 pb-20 relative z-10" data-aos="fade-up">
-                <div className="max-w-7xl mx-auto px-6">
-                    <h2 className="text-3xl font-extrabold mb-6">Experience</h2>
-
-                    <div className="space-y-8">
-                        {resume.experience.map((e, i) => (
-                            <div
-                                key={i}
-                                className="p-6 bg-white/5 border border-white/10 rounded-xl shadow-lg"
-                            >
-                                <h3 className="text-xl font-semibold">
-                                    {e.company}
-                                </h3>
-                                <p className="text-gray-400">{e.role}</p>
-                                <ul className="mt-4 ml-6 text-gray-400 list-disc text-sm">
-                                    {e.highlights.map((h, idx) => (
-                                        <li key={idx}>{h}</li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </div>
+            {/* QUICK LINKS — full detail lives on dedicated pages, not duplicated here */}
+            <section className="pb-24 pt-4 relative z-10">
+                <div className="max-w-7xl mx-auto px-6 grid sm:grid-cols-3 gap-6">
+                    {[
+                        {
+                            to: "/skills",
+                            title: "Technical Skills",
+                            desc: "Frontend, backend, database & tooling stack.",
+                        },
+                        {
+                            to: "/projects",
+                            title: "Projects",
+                            desc: "Production systems built end-to-end.",
+                        },
+                        {
+                            to: "/about",
+                            title: "Experience & Education",
+                            desc: "Work history and academic background.",
+                        },
+                    ].map((card) => (
+                        <Link
+                            key={card.to}
+                            to={card.to}
+                            className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-red-500/40 hover:-translate-y-1 transition-all duration-300"
+                        >
+                            <h3 className="text-lg font-bold text-white group-hover:text-red-400 transition-colors">
+                                {card.title}
+                            </h3>
+                            <p className="text-gray-400 text-sm mt-2">
+                                {card.desc}
+                            </p>
+                        </Link>
+                    ))}
                 </div>
-            </section> */}
+            </section>
         </div>
     );
 }

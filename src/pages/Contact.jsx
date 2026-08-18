@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {
@@ -11,9 +11,25 @@ import {
 } from "react-icons/fi";
 
 export default function Contact({ resume }) {
+    const [form, setForm] = useState({ name: "", email: "", message: "" });
+
     useEffect(() => {
         AOS.init({ duration: 900, once: true });
     }, []);
+
+    const handleChange = (e) =>
+        setForm({ ...form, [e.target.name]: e.target.value });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const subject = encodeURIComponent(
+            `Portfolio contact from ${form.name || "website visitor"}`,
+        );
+        const body = encodeURIComponent(
+            `${form.message}\n\n— ${form.name} (${form.email})`,
+        );
+        window.location.href = `mailto:${resume.email}?subject=${subject}&body=${body}`;
+    };
 
     return (
         <section className="bg-[#05080f] text-white pt-32 pb-20 px-6 relative overflow-hidden">
@@ -110,13 +126,17 @@ export default function Contact({ resume }) {
                         className="p-8 md:p-10 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-xl shadow-2xl"
                         data-aos="fade-left"
                     >
-                        <form className="grid gap-5">
+                        <form className="grid gap-5" onSubmit={handleSubmit}>
                             <div className="grid md:grid-cols-2 gap-5">
                                 <div className="space-y-2">
                                     <label className="text-xs font-bold uppercase tracking-widest text-gray-500 ml-1">
                                         Name
                                     </label>
                                     <input
+                                        name="name"
+                                        value={form.name}
+                                        onChange={handleChange}
+                                        required
                                         className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl focus:border-red-500 focus:outline-none transition-colors"
                                         placeholder="Enter Name"
                                     />
@@ -126,6 +146,11 @@ export default function Contact({ resume }) {
                                         Email
                                     </label>
                                     <input
+                                        type="email"
+                                        name="email"
+                                        value={form.email}
+                                        onChange={handleChange}
+                                        required
                                         className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl focus:border-red-500 focus:outline-none transition-colors"
                                         placeholder="Enter Email"
                                     />
@@ -136,16 +161,26 @@ export default function Contact({ resume }) {
                                     Message
                                 </label>
                                 <textarea
+                                    name="message"
+                                    value={form.message}
+                                    onChange={handleChange}
+                                    required
                                     rows="4"
                                     className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl focus:border-red-500 focus:outline-none transition-colors"
                                     placeholder="Enter Message"
                                 ></textarea>
                             </div>
 
-                            <button className="mt-2 group flex items-center justify-center gap-3 px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg shadow-red-600/20">
+                            <button
+                                type="submit"
+                                className="mt-2 group flex items-center justify-center gap-3 px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg shadow-red-600/20"
+                            >
                                 Send Message{" "}
                                 <FiSend className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                             </button>
+                            <p className="text-xs text-gray-500 text-center">
+                                Opens your email app with this message pre-filled to {resume.email}
+                            </p>
                         </form>
                     </div>
                 </div>

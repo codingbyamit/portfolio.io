@@ -108,7 +108,7 @@ export default function Projects({ projects }) {
                                 <div>
                                     <h3 className="flex items-center gap-2 text-white font-bold text-sm mb-3">
                                         <FiActivity className="text-green-500" />{" "}
-                                        Business Impact
+                                        What It Replaced
                                     </h3>
                                     <div className="p-4 bg-green-500/5 border border-green-500/20 rounded-xl">
                                         <p className="text-green-100 text-sm font-medium italic leading-relaxed">
